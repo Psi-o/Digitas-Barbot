@@ -65,7 +65,6 @@ public class JsscCommunicationImpl implements JsscCommunication {
             if(!init) {
                 for (String s : demo) {
                     serialPort.writeString(s + "\n");
-                    TimeUnit.SECONDS.sleep(3);
                 }
                 init = true;
             }
