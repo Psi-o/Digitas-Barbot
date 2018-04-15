@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/indexstyle.css"
+          th:href="@{/css/indexstyle.css}"
+          rel="stylesheet" media="screen"/>
+    <link href="../static/css/foundation.css"
+          th:href="@{/css/foundation.css}"
+          rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<div class="row header">
+    <div class="column">
+        <div class="text-center">
+            Pew pew bar
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column large-3 medium-6">
+        <span>Av. ports:</span>
+        <table>
+            <th:block th:each="user : ${ports}">
+                <tr>
+                    <td th:text="${user}">PORT ONE</td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+</div>
+<div class="column large-3 medium-6">
+    <span>Av. scripts</span>
+    <table>
+        <th:block th:each="user : ${scripts}">
+            <tr>
+                <td th:text="${user}">Script ONE</td>
+                <td>
+                    <form action="/cocktails/deleteScript">
+                        <input name="name" th:value="${user}" hidden="">
+                        <button type="submit">Delete script</button>
+                    </form>
+                    <form action="/scripts/execFromFile">
+                        <input name="name" th:value="${user}" hidden="">
+                        <button type="submit" th:text="Submit">Exec script </button>
+                    </form>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+<div class="column large-3 medium-6">
+    <span>Upload script</span>
+    <form id="fileUpload" enctype="multipart/form-data" action="/cocktails/upload" method="post">
+        <input type="file" name="files">
+        <input type="submit">
+    </form>
+</div>
+
+<div class="row">
+    <div class="column large-6 medium-12">
+        Configuration:
+        <span th:text="${'active port:' + activePort}">Active port: </span>
+        <form class="" action="/pi/selectComPort">
+            <label>
+                <span>New port:</span>
+                <input name="com">
+                <input type="submit">
+            </label>
+        </form>
+        <form class="" action="/scripts/exec">
+            <label>
+                <span>Script</span>
+                <input name="script">
+                <input type="submit">
+            </label>
+        </form>
+    </div>
+</div>
+
+
+<script src="../static/js/vendor/jquery.js"></script>
+<script src="../static/js/vendor/what-input.js"></script>
+<script src="../static/js/vendor/foundation.js"></script>
+
+<script src="../static/js/app.js"></script>
+
+</body>
+</html>
