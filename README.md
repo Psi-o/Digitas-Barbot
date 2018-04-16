@@ -1,4 +1,4 @@
-# Timesheets Bar
+# Digitas Barbot
 Back-end for the Digitas bar project
 
 Provides an easy to use API-Web interface to interact with an Arduino
