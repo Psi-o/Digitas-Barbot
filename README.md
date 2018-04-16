@@ -1,5 +1,5 @@
-# pewpewbar
-Back-end for the LBI bar project
+# Timesheets Bar
+Back-end for the Digitas bar project
 
 Provides an easy to use API-Web interface to interact with an Arduino
 
